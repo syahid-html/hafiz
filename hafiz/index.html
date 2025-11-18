@@ -21,7 +21,6 @@
         user-select: none;
     }
 
-    /* Adidas diagonal stripe background */
     body::before {
         content: "";
         position: fixed;
@@ -40,7 +39,6 @@
         opacity: 0.9;
     }
 
-    /* UiTM Logo */
     #uitm-logo {
         position: fixed;
         top: 18px;
@@ -49,7 +47,6 @@
         z-index: 10;
     }
 
-    /* Navigation bar */
     .nav {
         display: flex;
         gap: 35px;
@@ -75,12 +72,16 @@
         color: orange;
     }
 
-    /* Content area */
     .content {
         max-width: 900px;
         margin: 40px auto;
         padding: 20px 40px;
+        display: none;
         animation: fadeUp 0.7s ease;
+    }
+
+    .content.active-section {
+        display: block;
     }
 
     @keyframes fadeUp {
@@ -88,7 +89,6 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Photo */
     .photo {
         width: 200px;
         border-radius: 18px;
@@ -96,7 +96,6 @@
         margin-bottom: 15px;
     }
 
-    /* Section title */
     h2 {
         font-size: 24px;
         font-weight: 700;
@@ -105,7 +104,6 @@
         margin-bottom: 15px;
     }
 
-    /* Draggable ball */
     #ball {
         position: fixed;
         width: 45px;
@@ -123,30 +121,26 @@
         cursor: grabbing;
         transform: scale(1.18);
     }
-
 </style>
 </head>
 <body>
 
-<!-- UiTM Logo (Replace file in folder) -->
 <img id="uitm-logo" src="uitm_logo.png" alt="UiTM Logo">
 
-<!-- Navigation -->
 <div class="nav">
-    <div class="nav-item active" onclick="showSection('personal')"><i class="fa-solid fa-user"></i> PERSONAL</div>
-    <div class="nav-item" onclick="showSection('summary')"><i class="fa-solid fa-file-lines"></i> SUMMARY</div>
-    <div class="nav-item" onclick="showSection('education')"><i class="fa-solid fa-graduation-cap"></i> EDUCATION</div>
-    <div class="nav-item" onclick="showSection('experience')"><i class="fa-solid fa-briefcase"></i> EXPERIENCE</div>
-    <div class="nav-item" onclick="showSection('skills')"><i class="fa-solid fa-screwdriver-wrench"></i> SKILLS</div>
-    <div class="nav-item" onclick="showSection('languages')"><i class="fa-solid fa-language"></i> LANGUAGES</div>
-    <div class="nav-item" onclick="showSection('reference')"><i class="fa-solid fa-users"></i> REFERENCE</div>
-    <div class="nav-item" onclick="showSection('socials')"><i class="fa-solid fa-share-nodes"></i> SOCIALS</div>
+    <div class="nav-item active" data-section="personal"><i class="fa-solid fa-user"></i> PERSONAL</div>
+    <div class="nav-item" data-section="summary"><i class="fa-solid fa-file-lines"></i> SUMMARY</div>
+    <div class="nav-item" data-section="education"><i class="fa-solid fa-graduation-cap"></i> EDUCATION</div>
+    <div class="nav-item" data-section="experience"><i class="fa-solid fa-briefcase"></i> EXPERIENCE</div>
+    <div class="nav-item" data-section="skills"><i class="fa-solid fa-screwdriver-wrench"></i> SKILLS</div>
+    <div class="nav-item" data-section="languages"><i class="fa-solid fa-language"></i> LANGUAGES</div>
+    <div class="nav-item" data-section="reference"><i class="fa-solid fa-users"></i> REFERENCE</div>
+    <div class="nav-item" data-section="socials"><i class="fa-solid fa-share-nodes"></i> SOCIALS</div>
 </div>
 
-<!-- CONTENT SECTIONS -->
 <div id="content-box">
 
-    <div id="personal" class="content">
+    <div id="personal" class="content active-section">
         <center>
             <img src="myphoto.jpg" class="photo" alt="Profile Picture">
         </center>
@@ -157,12 +151,12 @@
         <p><b>Email:</b> madsyahid0302@gmail.com</p>
     </div>
 
-    <div id="summary" class="content" style="display:none;">
+    <div id="summary" class="content">
         <h2>Summary</h2>
-        <p>I am a motivated and adaptable individual with strong problem-solving skills, capable of performing under pressure and completing tasks with discipline and efficiency. With experience in customer service, teamwork, and information management, I am committed to continuous self-improvement and bringing a positive, responsible attitude into any work environment.</p>
+        <p>I am a motivated and adaptable individual with strong problem-solving skills...</p>
     </div>
 
-    <div id="education" class="content" style="display:none;">
+    <div id="education" class="content">
         <h2>Education</h2>
         <p><b>Diploma in Information Management</b> – Universiti Teknologi MARA (UiTM)</p>
         <p>CGPA: 3.03</p>
@@ -170,7 +164,7 @@
         <p>2023 – 4A</p>
     </div>
 
-    <div id="experience" class="content" style="display:none;">
+    <div id="experience" class="content">
         <h2>Experience</h2>
         <p><b>Cashier / Forecourt – Shell Station Ipoh (2023–2024)</b></p>
         <ul>
@@ -181,18 +175,16 @@
         </ul>
     </div>
 
-    <div id="skills" class="content" style="display:none;">
+    <div id="skills" class="content">
         <h2>Skills</h2>
         <ul>
             <li>Microsoft Office</li>
             <li>Leadership & teamwork</li>
-            <li>Physical & digital information management</li>
-            <li>Records and documentation handling</li>
-            <li>Discipline, work ethics, time management</li>
+            <li>Information management</li>
         </ul>
     </div>
 
-    <div id="languages" class="content" style="display:none;">
+    <div id="languages" class="content">
         <h2>Languages</h2>
         <ul>
             <li>Bahasa Melayu</li>
@@ -200,55 +192,52 @@
         </ul>
     </div>
 
-    <div id="reference" class="content" style="display:none;">
+    <div id="reference" class="content">
         <h2>Reference</h2>
         <p><b>Noor Syakinah Binti Mohd Ridwan</b></p>
-        <p>Lecturer – Faculty of Information Management, UiTM</p>
-        <p>Tel: 019-4235649 / 044562550</p>
-        <p>Email: noorsyakinah@uitm.edu.my</p>
     </div>
 
-    <div id="socials" class="content" style="display:none;">
+    <div id="socials" class="content">
         <h2>Socials</h2>
         <p><b>Instagram:</b> <a href="https://www.instagram.com/mrsyafiz" target="_blank" style="color:orange;">@mrsyafiz</a></p>
-        <p><b>Facebook:</b> <a href="https://www.facebook.com/share/1JEHiCCmM3" target="_blank" style="color:orange;">Profile Link</a></p>
     </div>
 
 </div>
 
-<!-- Draggable Ball -->
 <div id="ball"></div>
 
 <script>
-    function showSection(id) {
-        document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
-        document.getElementById(id).style.display = 'block';
-        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-        [...document.querySelectorAll('.nav-item')].find(n => n.textContent.includes(id.toUpperCase())).classList.add('active');
-    }
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const section = item.getAttribute('data-section');
 
-    // Draggable ball + bounce effect
+            document.querySelectorAll('.content').forEach(c => c.classList.remove('active-section'));
+            document.querySelector('#' + section).classList.add('active-section');
+
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
+
     const ball = document.getElementById("ball");
     let offsetX, offsetY;
 
-    ball.addEventListener("mousedown", function(e) {
+    ball.addEventListener("mousedown", e => {
         offsetX = e.clientX - ball.offsetLeft;
         offsetY = e.clientY - ball.offsetTop;
 
-        function move(e) {
+        const move = e => {
             ball.style.left = e.clientX - offsetX + "px";
             ball.style.top = e.clientY - offsetY + "px";
-        }
+        };
 
         document.addEventListener("mousemove", move);
-
-        document.addEventListener("mouseup", function() {
+        document.addEventListener("mouseup", () => {
             document.removeEventListener("mousemove", move);
         }, { once: true });
     });
 
-    ball.addEventListener("click", function() {
-        ball.style.transition = "transform 0.25s";
+    ball.addEventListener("click", () => {
         ball.style.transform = "translateY(-60px)";
         setTimeout(() => ball.style.transform = "translateY(0)", 250);
     });

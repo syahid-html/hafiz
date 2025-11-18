@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume - Ahmad Syahid Hafiz Bin Harun</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+        user-select: none;
+    }
+
+    /* Adidas diagonal stripe background */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            135deg,
+            #0d0d0d 0px,
+            #0d0d0d 12px,
+            #000 12px,
+            #000 24px
+        );
+        z-index: -1;
+        opacity: 0.9;
+    }
+
+    /* UiTM Logo */
+    #uitm-logo {
+        position: fixed;
+        top: 18px;
+        left: 25px;
+        width: 70px;
+        z-index: 10;
+    }
+
+    /* Navigation bar */
+    .nav {
+        display: flex;
+        gap: 35px;
+        padding: 25px 120px;
+        font-size: 15px;
+        font-weight: 600;
+        border-bottom: 2px solid #111;
+        background: rgba(0,0,0,0.9);
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .nav-item {
+        cursor: pointer;
+        padding-bottom: 6px;
+        border-bottom: 3px solid transparent;
+        transition: 0.3s;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+        border-bottom: 3px solid orange;
+        color: orange;
+    }
+
+    /* Content area */
+    .content {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px 40px;
+        animation: fadeUp 0.7s ease;
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Photo */
+    .photo {
+        width: 200px;
+        border-radius: 18px;
+        border: 3px solid red;
+        margin-bottom: 15px;
+    }
+
+    /* Section title */
+    h2 {
+        font-size: 24px;
+        font-weight: 700;
+        border-left: 5px solid red;
+        padding-left: 10px;
+        margin-bottom: 15px;
+    }
+
+    /* Draggable ball */
+    #ball {
+        position: fixed;
+        width: 45px;
+        height: 45px;
+        background: radial-gradient(circle, #c31414, #5a0000);
+        border-radius: 50%;
+        bottom: 90px;
+        right: 90px;
+        cursor: grab;
+        transition: transform 0.3s;
+        z-index: 99;
+    }
+
+    #ball:active {
+        cursor: grabbing;
+        transform: scale(1.18);
+    }
+
+</style>
+</head>
+<body>
+
+<!-- UiTM Logo (Replace file in folder) -->
+<img id="uitm-logo" src="uitm_logo.png" alt="UiTM Logo">
+
+<!-- Navigation -->
+<div class="nav">
+    <div class="nav-item active" onclick="showSection('personal')"><i class="fa-solid fa-user"></i> PERSONAL</div>
+    <div class="nav-item" onclick="showSection('summary')"><i class="fa-solid fa-file-lines"></i> SUMMARY</div>
+    <div class="nav-item" onclick="showSection('education')"><i class="fa-solid fa-graduation-cap"></i> EDUCATION</div>
+    <div class="nav-item" onclick="showSection('experience')"><i class="fa-solid fa-briefcase"></i> EXPERIENCE</div>
+    <div class="nav-item" onclick="showSection('skills')"><i class="fa-solid fa-screwdriver-wrench"></i> SKILLS</div>
+    <div class="nav-item" onclick="showSection('languages')"><i class="fa-solid fa-language"></i> LANGUAGES</div>
+    <div class="nav-item" onclick="showSection('reference')"><i class="fa-solid fa-users"></i> REFERENCE</div>
+    <div class="nav-item" onclick="showSection('socials')"><i class="fa-solid fa-share-nodes"></i> SOCIALS</div>
+</div>
+
+<!-- CONTENT SECTIONS -->
+<div id="content-box">
+
+    <div id="personal" class="content">
+        <center>
+            <img src="myphoto.jpg" class="photo" alt="Profile Picture">
+        </center>
+        <h2>Personal Information</h2>
+        <p><b>Name:</b> Ahmad Syahid Hafiz Bin Harun</p>
+        <p><b>Address:</b> No.83, Persiaran 1, Taman Chepor Jaya, 31200 Chemor, Perak</p>
+        <p><b>Phone:</b> 011-12109078</p>
+        <p><b>Email:</b> madsyahid0302@gmail.com</p>
+    </div>
+
+    <div id="summary" class="content" style="display:none;">
+        <h2>Summary</h2>
+        <p>I am a motivated and adaptable individual with strong problem-solving skills, capable of performing under pressure and completing tasks with discipline and efficiency. With experience in customer service, teamwork, and information management, I am committed to continuous self-improvement and bringing a positive, responsible attitude into any work environment.</p>
+    </div>
+
+    <div id="education" class="content" style="display:none;">
+        <h2>Education</h2>
+        <p><b>Diploma in Information Management</b> – Universiti Teknologi MARA (UiTM)</p>
+        <p>CGPA: 3.03</p>
+        <p><b>SPM – Sekolah Menengah Sains Teluk Intan, Perak</b></p>
+        <p>2023 – 4A</p>
+    </div>
+
+    <div id="experience" class="content" style="display:none;">
+        <h2>Experience</h2>
+        <p><b>Cashier / Forecourt – Shell Station Ipoh (2023–2024)</b></p>
+        <ul>
+            <li>Handled customer communication</li>
+            <li>Controlled emergency situations effectively</li>
+            <li>Solved fuel-related mistakes on site</li>
+            <li>Organized and restocked store items</li>
+        </ul>
+    </div>
+
+    <div id="skills" class="content" style="display:none;">
+        <h2>Skills</h2>
+        <ul>
+            <li>Microsoft Office</li>
+            <li>Leadership & teamwork</li>
+            <li>Physical & digital information management</li>
+            <li>Records and documentation handling</li>
+            <li>Discipline, work ethics, time management</li>
+        </ul>
+    </div>
+
+    <div id="languages" class="content" style="display:none;">
+        <h2>Languages</h2>
+        <ul>
+            <li>Bahasa Melayu</li>
+            <li>English</li>
+        </ul>
+    </div>
+
+    <div id="reference" class="content" style="display:none;">
+        <h2>Reference</h2>
+        <p><b>Noor Syakinah Binti Mohd Ridwan</b></p>
+        <p>Lecturer – Faculty of Information Management, UiTM</p>
+        <p>Tel: 019-4235649 / 044562550</p>
+        <p>Email: noorsyakinah@uitm.edu.my</p>
+    </div>
+
+    <div id="socials" class="content" style="display:none;">
+        <h2>Socials</h2>
+        <p><b>Instagram:</b> <a href="https://www.instagram.com/mrsyafiz" target="_blank" style="color:orange;">@mrsyafiz</a></p>
+        <p><b>Facebook:</b> <a href="https://www.facebook.com/share/1JEHiCCmM3" target="_blank" style="color:orange;">Profile Link</a></p>
+    </div>
+
+</div>
+
+<!-- Draggable Ball -->
+<div id="ball"></div>
+
+<script>
+    function showSection(id) {
+        document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        [...document.querySelectorAll('.nav-item')].find(n => n.textContent.includes(id.toUpperCase())).classList.add('active');
+    }
+
+    // Draggable ball + bounce effect
+    const ball = document.getElementById("ball");
+    let offsetX, offsetY;
+
+    ball.addEventListener("mousedown", function(e) {
+        offsetX = e.clientX - ball.offsetLeft;
+        offsetY = e.clientY - ball.offsetTop;
+
+        function move(e) {
+            ball.style.left = e.clientX - offsetX + "px";
+            ball.style.top = e.clientY - offsetY + "px";
+        }
+
+        document.addEventListener("mousemove", move);
+
+        document.addEventListener("mouseup", function() {
+            document.removeEventListener("mousemove", move);
+        }, { once: true });
+    });
+
+    ball.addEventListener("click", function() {
+        ball.style.transition = "transform 0.25s";
+        ball.style.transform = "translateY(-60px)";
+        setTimeout(() => ball.style.transform = "translateY(0)", 250);
+    });
+</script>
+
+</body>
+</html>
